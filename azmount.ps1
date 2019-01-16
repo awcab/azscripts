@@ -7,8 +7,8 @@ param(
   [Parameter(Mandatory=$true)] [string]$origroot
 )
 
-net use $drive $root $user $key
+net use $drive $root $user $key /persistent:yes
 
-net use $origdrive $origroot $user $key
+net use $origdrive $origroot $user $key /persistent:yes
 
 
