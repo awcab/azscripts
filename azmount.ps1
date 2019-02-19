@@ -10,13 +10,10 @@ param(
 )
 
 cmdkey /add:$ipaddress /user:Azure\$accountName /pass:$key
-
         
-net use $drive $root $user $key /persistent:yes
+net use $drive $root /persistent:yes
 
-net use $origdrive $origroot $user $key /persistent:yes
-
+net use $origdrive $origroot /persistent:yes
 
 Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
-
 choco install sysinternals -y
