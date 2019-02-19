@@ -1,5 +1,4 @@
-param(
-  [Parameter(Mandatory=$true)] [string]$user,
+param(  
   [Parameter(Mandatory=$true)] [string]$key,
   [Parameter(Mandatory=$true)] [string]$drive,
   [Parameter(Mandatory=$true)] [string]$origdrive,
@@ -12,7 +11,6 @@ param(
 cmdkey /add:$ipaddress /user:Azure\$accountName /pass:$key
         
 net use $drive $root /persistent:yes
-
 net use $origdrive $origroot /persistent:yes
 
 Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
