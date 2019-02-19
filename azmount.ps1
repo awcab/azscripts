@@ -4,9 +4,13 @@ param(
   [Parameter(Mandatory=$true)] [string]$drive,
   [Parameter(Mandatory=$true)] [string]$origdrive,
   [Parameter(Mandatory=$true)] [string]$root,
-  [Parameter(Mandatory=$true)] [string]$origroot
+  [Parameter(Mandatory=$true)] [string]$origroot,
+  [Parameter(Mandatory=$true)] [string]$accountName
 )
 
+cmdkey /add:$accountName.file.core.windows.net /user:Azure\$accountName /pass:$key
+
+        
 net use $drive $root $user $key /persistent:yes
 
 net use $origdrive $origroot $user $key /persistent:yes
